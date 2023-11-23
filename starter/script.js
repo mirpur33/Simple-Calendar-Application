@@ -29,4 +29,14 @@ $(document).ready(function () {
             }
         });
     }
-})
+    hourTracker();
+
+    function displayText() {
+        $(".time-block").each(function () {
+            var blockHour = $(this).attr("id");
+            $(this).children(".description").val(localStorage.getItem(blockHour));
+        });
+    }
+
+    displayText();
+});
