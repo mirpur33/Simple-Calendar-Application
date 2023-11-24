@@ -40,6 +40,12 @@ $(document).ready(function () {
         localStorage.setItem(blockHour, event);
       }
 
+      $(document).ready(function() {
+        hourTracker();
+        loadEvents();
+
+        $('.saveBtn').on('click', saveEvent);
+    });
       
 
 });
