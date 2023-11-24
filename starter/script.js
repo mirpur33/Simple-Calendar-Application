@@ -2,16 +2,20 @@ $(document).ready(function () {
 
     var displayTime = document.querySelector ("#currentDay");
 
-    var currentTime = dayjs().format("dddd, MMMM, D, YYYY");
+    var currentTime = dayjs().format("dddd, MMMM D, YYYY h:mm A");
 
     displayTime.textContent = currentTime;
 
-    $(".saveBtn").on("click", function() {
-        var text = $(this).siblings(".description").val();
-        var time = $(this).parent().attr("id");
 
-        localStorage.setItem(time, text);
-    });
+
+    function saveEvent() {
+        var blockHour = $(this).closest(".time-block").attr("id");
+        var event = $(this).siblings(".description").val();
+
+        localStorage.setItem(blockHour, event);
+
+        $(".saveBtn").on("click", saveEvent);
+    };
 
     function hourTracker() {
 
